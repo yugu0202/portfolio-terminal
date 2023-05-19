@@ -3,17 +3,10 @@
 	<head>
 		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/jquery.terminal/js/jquery.terminal.min.js"></script>
-		<script src="js/aalib.js"></script>
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery.terminal/css/jquery.terminal.min.css"/>
 	</head>
 	<body>
 		<script>
-			const ascii = aalib.read.image.fromURL("https://github.com/yugu0202.png")
-										.map(aalib.filter.contrast(-1.9))
-										.map(aalib.aa({width: 79, height:35}))
-										.map(aalib.filter.brightness(9))
-										.map(aalib.render.html({charset: aalib.charset.SIMPLE_CHARSET}))
-										.subscribe()
 			$('body').terminal({
 				title: function(...args) {
         				const options = $.terminal.parse_options(args);
@@ -31,9 +24,6 @@
 					this.set_prompt(what+" > ");
 				},
 
-				test: function() {
-					this.echo(ascii);
-				}
 			}, {
 				checkArity: false,
 				greetings: "test"
