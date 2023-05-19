@@ -8,6 +8,14 @@
 	<body>
 		<script>
 			$('body').terminal({
+				title: function(...args) {
+        				const options = $.terminal.parse_options(args);
+					console.log(options);
+        				return fetch(options.url || 'https://terminal.jcubic.pl')
+            				.then(r => r.text())
+            				.then(html => html.match(/<title>([^>]+)<\/title>/)[1]);
+    				},
+				
 				hello: function(what) {
 					this.echo('Hello, ' + what + '. Wellcome to this terminal.');
 				}
