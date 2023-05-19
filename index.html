@@ -20,8 +20,8 @@
 					this.echo('Hello, ' + what + '. Wellcome to this terminal.');
 				},
 				
-				cd: function() {
-					this.set_prompt("~");
+				cd: function(what) {
+					this.set_prompt(what+"> ");
 				}
 			}, {
 				checkArity: false,
